@@ -2,7 +2,7 @@
 using namespace std;
 
 int main () {
-    // Array dan Variabel
+    // Inisialisasi Array dan Variabel
     string nomer_kamar[5] = {"306", "100", "345", "205", "666"}, umur[5], menginap[5];
     string nama[5], user_input, jenis_kelamin[5];
     int index = 0;
