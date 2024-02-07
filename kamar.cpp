@@ -1,4 +1,6 @@
 #include <iostream>
+#include <algorithm>
+#include <typeinfo>
 using namespace std;
 
 int main () {
@@ -15,6 +17,7 @@ int main () {
     while(true) {
         cout << "Printah(tambah, cari, list, exit): ";
         cin >> user_input;
+        transform(user_input.begin(), user_input.end(), user_input.begin(), ::tolower);
         // Tambah Kamar
         // Percabangan
         if(user_input == "tambah"){
@@ -23,8 +26,17 @@ int main () {
             cin >> nama[index];
             cout << "Masukan Umur: ";
             cin >> umur[index];
-            cout << "Masukan Jenis Kelamin(L/P): ";
-            cin >> jenis_kelamin[index];
+            while(true) {
+                cout << "Masukan Jenis Kelamin(L/P): ";
+                cin >> user_input;
+                transform(user_input.begin(), user_input.end(), user_input.begin(), ::tolower);
+                if(user_input == "l" || user_input == "p") {
+                    jenis_kelamin[index] = user_input;
+                    break;
+                } else {
+                    cout << "Input yang anda masukan tidak valid silakan masukan L/P" << endl;
+                }
+            }
             cout << "Masukan Lama Menginap: ";
             cin >> menginap[index];
             cout << "Kamar Berhasil Di Tambahkan" << endl;
@@ -67,6 +79,7 @@ int main () {
                     cout << nomer_kamar[i] << " Kosong" << endl;
                 }
             }
+            cout << endl;
 
             // Keluar dari program
         }else if(user_input == "exit") {
